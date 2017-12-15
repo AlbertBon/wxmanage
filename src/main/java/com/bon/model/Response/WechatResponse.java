@@ -1,8 +1,16 @@
-package com.bon.entity;
+package com.bon.model.Response;
 
 import java.util.Date;
 
-public class Wechat {
+/**
+ * 类描述信息
+ * com.bon.model.Response
+ *
+ * @author pengwen
+ * @create 2017/11/30 0030
+ **/
+public class WechatResponse {
+
     private Integer id;
 
     private String appName;
@@ -17,6 +25,8 @@ public class Wechat {
 
     private Date createTime;
 
+    private String createDate;
+
     public Integer getId() {
         return id;
     }
@@ -30,7 +40,7 @@ public class Wechat {
     }
 
     public void setAppName(String appName) {
-        this.appName = appName == null ? null : appName.trim();
+        this.appName = appName;
     }
 
     public String getAppId() {
@@ -38,7 +48,7 @@ public class Wechat {
     }
 
     public void setAppId(String appId) {
-        this.appId = appId == null ? null : appId.trim();
+        this.appId = appId;
     }
 
     public String getAppSecret() {
@@ -46,7 +56,7 @@ public class Wechat {
     }
 
     public void setAppSecret(String appSecret) {
-        this.appSecret = appSecret == null ? null : appSecret.trim();
+        this.appSecret = appSecret;
     }
 
     public Integer getIsCurrent() {
@@ -62,7 +72,7 @@ public class Wechat {
     }
 
     public void setActoken(String actoken) {
-        this.actoken = actoken == null ? null : actoken.trim();
+        this.actoken = actoken;
     }
 
     public Date getCreateTime() {
@@ -73,4 +83,11 @@ public class Wechat {
         this.createTime = createTime;
     }
 
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
 }

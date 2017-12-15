@@ -17,18 +17,21 @@ public class ResultBody<T> implements Serializable {
     private Integer code = 200;
 
     /**
+     * 消息提示
+     */
+    @ApiModelProperty(value = "消息提示")
+    private String msg="success";
+
+    /**
      * 数据
      */
     @ApiModelProperty(value = "数据", required = true)
     private T data;
 
-    @ApiModelProperty(value = "消息提示")
-    private String msg;
-
     /**
      * 业务码
      */
-    @ApiModelProperty(value = "业务码")
+    @ApiModelProperty(value = "业务码",hidden = true)
     private Integer bizCode;
 
     public ResultBody() {
@@ -40,6 +43,11 @@ public class ResultBody<T> implements Serializable {
         this.msg = msg;
     }
 
+    public ResultBody(T data) {
+        super();
+        this.data = data;
+    }
+
     public ResultBody(Integer code, String msg) {
         super();
         this.code = code;
@@ -48,9 +56,8 @@ public class ResultBody<T> implements Serializable {
 
     public ResultBody(Integer code, String msg, T data) {
         super();
-        this.code = code;
-        this.bizCode = bizCode;
-        this.msg = msg;
+        this.code = (null==code) ? 200 : code;
+        this.msg = (null==code) ? "success" : msg;
         this.data = data;
     }
 
@@ -95,7 +102,7 @@ public class ResultBody<T> implements Serializable {
     }
 
 
-    public static JSONObject toJson(Object data) {
+    public static JSONObject toJsonObject(Object data) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("response_code", ExceptionType.SUCCESS.getCode());
         jsonObject.put("message", ExceptionType.SUCCESS.getMessage());

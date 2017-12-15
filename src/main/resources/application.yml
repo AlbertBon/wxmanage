@@ -74,6 +74,18 @@ spring:
 
 mybatis:
   type-aliases-package: com.bon.entity
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath*:/mybaits/*Mapper.xml
+
+mapper:
+    mappers:
+    - com.bon.util.MyMapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
 
 

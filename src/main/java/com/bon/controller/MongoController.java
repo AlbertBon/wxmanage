@@ -1,22 +1,12 @@
-//package com.bon.controller;
-//
-//import com.alibaba.fastjson.JSONObject;
-//import com.bon.entity.User;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.mongodb.core.MongoTemplate;
-//import org.springframework.data.mongodb.core.query.Criteria;
-//import org.springframework.data.mongodb.core.query.Query;
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RestController;
-//
-///**
-// * 测试 MongoDB 的功能
-// */
+package com.bon.controller;
+
+/**
+ * 测试 MongoDB 的功能
+ */
 //@RestController
 //@RequestMapping("/mongo")
-//public class MongoController {
-//
+public class MongoController {
+
 //    private final MongoTemplate mongoTemplate;
 //
 //    @Autowired
@@ -45,4 +35,4 @@
 //        user.setName("dou");
 //        mongoTemplate.save(user);
 //    }
-//}
+}

@@ -1,23 +1,16 @@
 package com.bon.entity;
 
+import javax.persistence.Table;
 import java.util.Date;
 
-public class User {
-    private Integer id;
+@Table(name = "tb_user")
+public class User extends BaseEntity{
 
     private String name;
 
     private Date birthday;
 
     private String address;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
