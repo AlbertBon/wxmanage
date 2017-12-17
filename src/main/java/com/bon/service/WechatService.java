@@ -13,5 +13,18 @@ import com.github.pagehelper.Page;
  **/
 public interface WechatService {
 
+    /**
+     * 查询公众号列表，带分页
+     * @param params
+     * @return
+     */
     Page<WechatResponse> wechatList(WechatListParams params);
+
+    /**
+     * 查询公众号列表（尝试通用方法）
+     * @param params
+     * @return
+     */
+    Page<WechatResponse> wechatListPublic(WechatListParams params);
+
 }

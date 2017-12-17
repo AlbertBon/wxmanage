@@ -2,6 +2,10 @@ package com.bon.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.apache.ibatis.mapping.MappedStatement;
+import tk.mybatis.mapper.entity.Example;
+
+import java.util.Map;
 
 /**
  * 类描述信息
@@ -11,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @create 2017/11/30 0030
  **/
 @ApiModel
-public class BaseParams {
+public class BaseParams<T> {
 
     @ApiModelProperty(value = "当前页",example = "1")
     private int pageNum=1;
@@ -25,6 +29,31 @@ public class BaseParams {
     private Boolean reasonable;
     @ApiModelProperty(value = "当设置为true的时候，如果pagesize设置为0（或RowBounds的limit=0），就不执行分页，返回全部结果",example = "false",hidden = true)
     private Boolean pageSizeZero;
+    @ApiModelProperty(value = "查询关键字",example = "1000")
+    private Map<String,String> keyMap;
+
+    private Example example;
+
+    //根据条件创建查询模板
+    public Example createExample(T t) {
+        if(null!=this.getKeyMap()){
+            example = new Example(t.getClass());
+            for(Map.Entry<String, String> entry : keyMap.entrySet()){
+                example.createCriteria().andCondition(entry.getKey(),entry.getValue());
+            }
+            return example;
+        }else {
+            return null;
+        }
+    }
+
+    public Map<String, String> getKeyMap() {
+        return keyMap;
+    }
+
+    public void setKeyMap(Map<String, String> keyMap) {
+        this.keyMap = keyMap;
+    }
 
     public int getPageNum() {
         return pageNum;

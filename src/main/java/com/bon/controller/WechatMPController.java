@@ -1,6 +1,7 @@
 package com.bon.controller;
 
 import com.bon.common.bean.ResultBody;
+import com.bon.model.MyPageInfo;
 import com.bon.model.Response.WechatResponse;
 import com.bon.model.WechatListParams;
 import com.bon.service.WechatService;
@@ -39,6 +40,19 @@ public class WechatMPController {
     @ApiResponse(code = 200,message = "success")
     public String wechatList(@RequestBody WechatListParams params){
         Page<WechatResponse> list=wechatService.wechatList(params);
-        return new ResultBody(new PageInfo<>(list)).toJsonString();
+        return new ResultBody(new MyPageInfo<>(list)).toJsonString();
+    }
+
+    @PostMapping(value = "/wechatListPublic")
+    @ApiOperation(
+            value = "/wechatListPublic",
+            notes = "公众号列表",
+            httpMethod = "POST",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    @ApiResponse(code = 200,message = "success")
+    public String wechatListPublic(@RequestBody WechatListParams params){
+        Page<WechatResponse> list=wechatService.wechatListPublic(params);
+        return new ResultBody(new MyPageInfo<>(list)).toJsonString();
     }
 }

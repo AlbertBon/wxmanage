@@ -1,8 +1,13 @@
 package com.bon.entity;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Table(name = "tb_wechat_mp")
 public class Wechat {
+
+    @Id
     private Integer id;
 
     private String appName;

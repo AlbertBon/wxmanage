@@ -24,6 +24,8 @@
 
 package com.bon.util;
 
+import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.SelectProvider;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
 
